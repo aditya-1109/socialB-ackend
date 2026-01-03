@@ -23,8 +23,8 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({ storage, fileFilter });
 
-postRoute.post("/createPost", upload.single("image"),createPost);
+postRoute.post("/", upload.single("image"),createPost);
 
-postRoute.get("/getPost", getPost)
+postRoute.get("/", getPost)
 
-postRoute.patch("/updatePost/:id", updatePost)
+postRoute.patch("/comments/:id", updatePost)
