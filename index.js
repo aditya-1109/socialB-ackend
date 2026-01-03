@@ -9,10 +9,25 @@ import { fileURLToPath } from "url";
 config();
 
 const app = express();
+
+const allowedOrigins = [
+  "http://localhost:5173",                
+  "https://social-gules-nu.vercel.app"  
+];
+
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET","POST","PATCH","DELETE","OPTIONS"],
+  credentials: true 
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
