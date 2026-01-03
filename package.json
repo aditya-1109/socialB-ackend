@@ -1,0 +1,18 @@
+{
+  "name": "social",
+  "version": "1.0.0",
+  "description": "This is the backend of the social media project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aditya jain",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.1",
+    "multer": "^2.0.2"
+  }
+}
