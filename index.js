@@ -33,7 +33,7 @@ const connectDB = async () => {
 connectDB();
 
 // Routes
-app.use("/post", postRoute);
+app.use("/api/posts", postRoute);
 
 // Health Check
 app.get("/", (req, res) => {
